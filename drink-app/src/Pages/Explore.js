@@ -6,6 +6,7 @@ import CardComponent from "../Components/CardComponent";
 
 const Explore = () => {
   const [shownDrinks, setShownDrinks] = useState([1, 2, 3, 4]);
+  const [input, setInput] = useState();
 
   const printDrinks = () => {
     return shownDrinks.map((item, index) => {
@@ -24,7 +25,6 @@ const Explore = () => {
   const onSearchDrinks = (searchWord) => {
     cocktails.cocktails.map((item, index) => {
       if (item.name.includes(searchWord)) {
-        console.log("word found");
         /*setShownDrinks([
           ...shownDrinks,
           {
@@ -43,7 +43,7 @@ const Explore = () => {
       <LinkComponent to="/explore" title="Explore" />
       <h1>Find your favourite drink!</h1>
       <form>
-        <input className="box" type="text"></input>
+        <input className="box" type="text" value={input}></input>
         <button onClick={onSearchDrinks()} id="searchButton">
           Search
         </button>

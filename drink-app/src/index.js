@@ -18,7 +18,7 @@ const routes = (
         <Route
           path="/drink"
           component={drink}
-          render={(props) => <Dashboard {...props} isAuthed={true} />}
+          /*render={(props) => <Dashboard {...props} isAuthed={true} />}*/
         />
         <Route component={NoPageFound} />
       </Switch>
