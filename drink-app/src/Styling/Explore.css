@@ -14,3 +14,9 @@ input {
   margin-left: 0.2vw;
   height: 2.4vw;
 }
+
+#results {
+  margin: 4.5vw;
+  width: 90vw;
+  background-color: aquamarine;
+}

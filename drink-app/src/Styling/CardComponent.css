@@ -1,4 +1,8 @@
-img {
-  height: 10vw;
-  width: 10vw;
+.picOfDrinks {
+  height: 15vw;
+  width: 15vw;
+}
+
+.cardDiv {
+  margin: 2vw;
 }

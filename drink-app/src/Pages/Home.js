@@ -9,7 +9,7 @@ const Home = () => {
       <LinkComponent to="/home" title="Home" />
       <LinkComponent to="/explore" title="Explore" />
       <h1>Welcome to The Cocktail Explorer!</h1>
-      <img src={cocktails} alt="cocktails" />
+      <img id="drinks" src={cocktails} alt="cocktails" />
     </div>
   );
 };

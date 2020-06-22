@@ -5,9 +5,24 @@ import LinkComponent from "../Components/LinkComponent";
 import CardComponent from "../Components/CardComponent";
 
 const Explore = () => {
-  const [shownDrinks, setShownDrinks] = useState([]);
+  const [shownDrinks, setShownDrinks] = useState([0, 1, 2, 3]);
 
-  const onSearchDrinks = () => {};
+  const printDrinks = () => {
+    return shownDrinks.map((item, index) => {
+      return (
+        <CardComponent
+          to="/drink"
+          titleLink={cocktails.cocktails[shownDrinks[index]].name}
+          imageSRC={cocktails.cocktails[shownDrinks[index]].image}
+          titlePic={cocktails.cocktails[shownDrinks[index]].name}
+        />
+      );
+    });
+  };
+
+  const onSearchDrinks = () => {
+    setShownDrinks();
+  };
 
   return (
     <div id="page">
@@ -18,7 +33,7 @@ const Explore = () => {
         <input className="box" type="text"></input>
         <button id="searchButton">Search</button>
       </form>
-      <div id="results"></div>
+      <div id="results">{printDrinks()}</div>
     </div>
   );
 };
