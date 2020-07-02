@@ -6,3 +6,13 @@
 .cardDiv {
   margin: 2vw;
 }
+
+#cardButton {
+  border: none;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#cardButton:hover {
+  background-color: rgb(81, 216, 209);
+}
