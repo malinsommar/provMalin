@@ -19,3 +19,12 @@ input {
   margin: 4.5vw;
   width: 90vw;
 }
+
+#review {
+  height: 10vw;
+}
+
+.reviewCard {
+  background-color: rgb(81, 216, 209);
+  margin-bottom: 3vw;
+}
