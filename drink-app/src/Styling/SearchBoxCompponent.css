@@ -1,0 +1,14 @@
+input {
+  height: 2vw;
+  color: #ebedf2;
+  border: 1px solid #ebedf2;
+  border-radius: 4px;
+  opacity: 1;
+}
+.box {
+  text-align: left;
+  font: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0px;
+  color: #575962;
+  opacity: 0.6;
+}
