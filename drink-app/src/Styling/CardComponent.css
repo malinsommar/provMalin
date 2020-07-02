@@ -4,6 +4,7 @@
 }
 
 .cardDiv {
+  display: inline-block;
   margin: 2vw;
 }
 
@@ -11,6 +12,9 @@
   border: none;
   background-color: white;
   border-radius: 4px;
+  outline: none;
+  margin-bottom: 0.5vw;
+  background-color: rgb(209, 250, 246);
 }
 
 #cardButton:hover {

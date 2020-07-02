@@ -9,16 +9,17 @@ const Explore = () => {
   const [toggleSearch, setToggle] = useState(true);
   const [currentCocktail, setCurrentCocktail] = useState();
   const [comments, setComments] = useState([
-    { drink: 1, name: "Malin", title: "wow", review: "bra drink" },
-    { drink: 1, name: "Malino", title: "meh", review: "ganska god änna" },
-    { drink: 2, name: "Malin", title: "ew", review: "dålig drink" },
-    { drink: 3, name: "Malin", title: "Hm", review: "ok drink" },
+    { drink: 1, name: "Malin", title: "Wow", review: "Bra drink" },
+    { drink: 1, name: "Malino", title: "Meh", review: "Ganska god änna" },
+    { drink: 2, name: "Malin", title: "Eww", review: "Dålig drink faktiskt" },
+    { drink: 3, name: "Malin", title: "Hm", review: "Ok drink" },
   ]);
 
   const addReview = (e) => {
     const newElement = {
       drink: currentCocktail,
       name: e.target.elements.name.value,
+      title: e.target.elements.title.value,
       review: e.target.elements.review.value,
     };
     e.preventDefault();
@@ -35,7 +36,7 @@ const Explore = () => {
         return (
           <div key={item.review} className="reviewCard">
             <p>By {comments[index].name}</p>
-            <p>
+            <p id="time">
               {new Intl.DateTimeFormat("en-UK", {
                 year: "numeric",
                 month: "2-digit",
@@ -73,7 +74,7 @@ const Explore = () => {
         <h1>Find your favourite drink!</h1>
         <form onSubmit={onSearchDrinks}>
           <input name="input" className="box" type="textfield"></input>
-          <button>Search</button>
+          <button id="seachButton">Search</button>
         </form>
         <div id="results">{printDrinks()}</div>
       </div>
@@ -84,21 +85,31 @@ const Explore = () => {
     return (
       <div id="page">
         <h1>{shownDrinks[currentCocktail].name}</h1>
-        <img src={shownDrinks[currentCocktail].image}></img>
         <p>{shownDrinks[currentCocktail].preparation}</p>
-        <button disabled={currentCocktail === 0} onClick={getPrevDrink}>
-          {"<-"}
-        </button>
-        <button onClick={toggleView}>{"Return"}</button>
+        <img src={shownDrinks[currentCocktail].image}></img>
+        <br />
         <button
+          id="prevButton"
+          className="round"
+          disabled={currentCocktail === 0}
+          onClick={getPrevDrink}
+        >
+          {"<"}
+        </button>
+        <button className="round" id="returnButton" onClick={toggleView}>
+          {"Return"}
+        </button>
+        <button
+          id="nextButton"
+          className="round"
           disabled={currentCocktail === shownDrinks.length - 1}
           onClick={getNextDrink}
         >
-          {"->"}
+          {">"}
         </button>
         <br />
 
-        <p>Add a review! </p>
+        <h3>Add a review!</h3>
         <form onSubmit={addReview}>
           <p>Name</p>
           <input name="name" type="textfield"></input>
@@ -108,7 +119,9 @@ const Explore = () => {
 
           <input name="review" id="review" type="textfield"></input>
           <br />
-          <button>Submit</button>
+          <button className="round" id="submit">
+            Submit
+          </button>
         </form>
         {printOutReview()}
       </div>
