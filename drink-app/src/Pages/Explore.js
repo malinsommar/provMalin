@@ -9,6 +9,12 @@ const Explore = () => {
   const [toggleSearch, setToggle] = useState(true);
   const [currentCocktail, setCurrentCocktail] = useState();
   const [comments, setComments] = useState([
+    {
+      drink: 0,
+      name: "Malina",
+      title: "Wonderful",
+      review: "10/10 would recommend",
+    },
     { drink: 1, name: "Malin", title: "Wow", review: "Bra drink" },
     { drink: 1, name: "Malino", title: "Meh", review: "Ganska god änna" },
     { drink: 2, name: "Malin", title: "Eww", review: "Dålig drink faktiskt" },
@@ -137,10 +143,10 @@ const Explore = () => {
   };
 
   const printDrinks = () => {
-    if (!shownDrinks) {
-      return <div>No drinks found</div>;
-    } else
-      return shownDrinks.map((item, index) => {
+    return shownDrinks.length === 0 ? (
+      <p>No drinks found :(</p>
+    ) : (
+      shownDrinks.map((item, index) => {
         return (
           <CardComponent
             toggle={() => toggleView(index)}
@@ -150,7 +156,8 @@ const Explore = () => {
             key={index}
           />
         );
-      });
+      })
+    );
   };
   const onSearchDrinks = (e) => {
     if (e) {
